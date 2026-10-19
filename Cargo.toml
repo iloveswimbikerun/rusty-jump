@@ -1,0 +1,44 @@
+[package]
+name = "rusty_jump"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = { version = "0.20", default-features = false, features = [
+    "std",
+    "async_executor",
+    "bevy_asset",
+    "bevy_log",
+    "bevy_winit",
+    "bevy_window",
+    "bevy_camera",
+    "bevy_color",
+    "bevy_image",
+    "bevy_mesh",
+    "bevy_shader",
+    "bevy_material",
+    "bevy_text",
+    "default_font",
+    "bevy_sprite",
+    "bevy_sprite_render",
+    "bevy_render",
+    "bevy_core_pipeline",
+    "bevy_ui",
+    "bevy_ui_render",
+    "webgl2",
+    "web",
+    "x11",
+    "wayland",
+] }
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+strip = true
